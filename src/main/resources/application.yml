@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+      bindings:
+        kafka:
+          binder:
+            headers: version, action, EventVersion, EntityVersion
+        user-event-output:
+          destination: card-event
+          contentType: application/json
+          producer:
+            headerMode: raw
+        card-event-output:
+          destination: card-action-event
+          contentType: application/json
+          consumer:
+            headerMode: raw
+
+server:
+  port: 8086
+
+redis:
+  host: 127.0.0.1
+
+logging:
+  level:
+    root: DEBUG
+
+mybank:
+  serviceName: card-web

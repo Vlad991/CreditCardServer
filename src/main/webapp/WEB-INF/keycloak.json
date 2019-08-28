@@ -1,0 +1,8 @@
+{
+  "realm": "credit-card",
+  "bearer-only": true,
+  "auth-server-url": "http://127.0.0.1:8080/auth",
+  "ssl-required": "external",
+  "resource": "card-web",
+  "use-resource-role-mappings": true
+}
