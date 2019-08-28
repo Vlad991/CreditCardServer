@@ -1,7 +1,6 @@
 package com.mybank.service;
 
 import com.mybank.dto.SendSumDTO;
-import com.mybank.messaging.MessageService;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 

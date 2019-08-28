@@ -1,6 +1,5 @@
 package com.mybank.controller;
 
-import com.mybank.messaging.MessageService;
 import com.mybank.service.CreditCardService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,6 @@ public class CreditCardController {
     public CreditCardController(CreditCardService creditCardService) {
         this.creditCardService = creditCardService;
     }
-
-    //    @GetMapping(value = "/{number}/info")
-//    public CreditCardDTO cardInfo(@PathVariable("number") String number) {
-//        return creditCardControllerService.findCreditCardByNumber(number);
-//    }
 
     @PutMapping(value = "/{number}/send")
     public ResponseEntity sendSumToCreditCard(@PathVariable("number") String senderCardNumber,
