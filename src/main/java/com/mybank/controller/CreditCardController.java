@@ -1,8 +1,11 @@
 package com.mybank.controller;
 
+import com.mybank.dto.SendSumDTO;
 import com.mybank.service.CreditCardService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/card")
@@ -16,9 +19,8 @@ public class CreditCardController {
 
     @PutMapping(value = "/{number}/send")
     public ResponseEntity sendSumToCreditCard(@PathVariable("number") String senderCardNumber,
-                                              @RequestBody String receiverCardNumber,
-                                              @RequestBody int sum) {
-        creditCardService.sendSum(senderCardNumber, receiverCardNumber, sum);
+                                              @Valid @RequestBody SendSumDTO sendSumDTO) {
+        creditCardService.sendSum(sendSumDTO);
         return ResponseEntity.accepted().build();
     }
 

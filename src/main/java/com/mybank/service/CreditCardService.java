@@ -12,11 +12,7 @@ public class CreditCardService {
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-    public void sendSum(String senderCardNumber, String receiverCardNumber, int sum) {
-        SendSumDTO sendSumDTO = new SendSumDTO();
-        sendSumDTO.setSenderCardNumber(senderCardNumber);
-        sendSumDTO.setReceiverCardNumber(receiverCardNumber);
-        sendSumDTO.setSum(sum);
+    public void sendSum(SendSumDTO sendSumDTO) {
         applicationEventPublisher.publishEvent(sendSumDTO);
     }
 

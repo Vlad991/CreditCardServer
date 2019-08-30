@@ -1,4 +1,16 @@
 spring:
+  datasource:
+    username: kzm_vlad
+    password: 123root@
+    driverClassName: com.mysql.cj.jdbc.Driver
+    driverDialect: org.hibernate.dialect.MySQLDialect
+    url: jdbc:mysql://localhost:3306/carddb?verifyServerCertificate=false&useSSL=false&allowPublicKeyRetrieval=true&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+  jpa:
+    hibernate:
+      ddl-auto: update
+  #  liquibase:
+  #    change-log: classpath:db/changelog-master.xml
+
   cloud:
     stream:
       kafka:
@@ -9,13 +21,13 @@ spring:
         kafka:
           binder:
             headers: version, action, EventVersion, EntityVersion
-        user-event-output:
-          destination: card-event
+        send-event-output:
+          destination: send-event
           contentType: application/json
           producer:
             headerMode: raw
-        card-event-output:
-          destination: card-action-event
+        block-event-output:
+          destination: block-event
           contentType: application/json
           consumer:
             headerMode: raw
